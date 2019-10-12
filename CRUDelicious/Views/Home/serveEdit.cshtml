@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "edit";
+}
+
+@model CRUDelicious.Models.Dish
+
+<form asp-controller="Home" asp-action="doneEditing" asp-route-passedId="@Model.DishId" class="form-control" method="post">
+    @*<input type="hidden" value="@Model.DishId" name="myVal" />
+    <label>hide me eventually</label>
+    <input type="text" name="hideMeEventually" value="@Model.DishId" />*@
+    <div class="chunkA row ">
+        <span asp-validation-for="@Model.Chef"></span>
+        <label asp-for="@Model.Chef"></label>
+        <input class="form-control" asp-for="@Model.Chef" value="@Model.Chef" />
+
+        <input type="hidden" asp-for="@Model.DishId" a />
+
+        <span asp-validation-for="@Model.Name"></span>
+        <label asp-for="@Model.Name"></label>
+        <input class="form-control" asp-for="@Model.Name" value="@Model.Name"/>
+
+        <span asp-validation-for="@Model.Calories"></span>
+        <label asp-for="@Model.Calories"></label>
+        <input class="form-control" asp-for="@Model.Calories" value="@Model.Calories"/>
+    </div>
+    <div class="row">
+        <span asp-validation-for="@Model.Tastiness"></span>
+        <label asp-for="@Model.Tastiness"></label>
+        <select class="form-control" asp-for="@Model.Tastiness" >
+            @for (var i = 1; i <= 10; i++)
+            {
+                <option value="@i">@i</option>
+
+            }
+        </select>
+    </div>
+    <div class="row">
+        <span asp-validation-for="@Model.Description"></span>
+        <label asp-for="@Model.Description"></label>
+        <input class="form-control" asp-for="@Model.Description" value="@Model.Description" />
+    </div>
+    <input type="submit" name="name" value="edit the dish" />
+</form>

@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<CRUDelicious.Models.Dish> 
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class="container">
+        Welcome to CRUDelicious
+        <div>
+            <h2> Checkout some of the recent Dishes </h2>
+            <a asp-action="NewDish">Add a Dish</a>
+            <a asp-action="removealldish">Remove All Dishes</a>
+        </div>
+    </div>
+
+    <div class="container">
+      @foreach (var d in Model)
+      {
+        <div class="row"> <a href="@d.DishId">@d.Name</a> &nbsp; by @d.Chef</div>
+      }
+    </div>
+</div>
+
+
+
+

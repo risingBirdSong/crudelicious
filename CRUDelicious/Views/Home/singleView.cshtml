@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "singleView";
+}
+@model  CRUDelicious.Models.Dish
+<h1>Name :@Model.Name</h1>
+<p>Chef : @Model.Chef </p>
+<p> Num of Cals : @Model.Calories</p>
+<p>tastiness : @Model.Tastiness</p>
+<p>Description @Model.Description </p>
+<a asp-controller="Home"
+   asp-action="serveEdit"
+   asp-route-passedId="@Model.DishId">Edit the dish</a>
+
+<a asp-controller="Home"
+   asp-action="Delete"
+   asp-route-theIdToDelete="@Model.DishId">Delete The Recipe</a>
